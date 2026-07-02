@@ -46,7 +46,7 @@ export default function WatchlistDetailPage() {
         <>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <div className="label flex items-center gap-2"><FontAwesomeIcon icon={faSatelliteDish} className="text-primary" /> watch #{w.watchId} · {w.sourceType}</div>
+              <div className="label flex items-center gap-2"><FontAwesomeIcon icon={faSatelliteDish} className="text-primary" /> watch #{w.watchId} | {w.sourceType}</div>
               <h1 className="mt-1 font-mono text-xl font-semibold tracking-tight">{w.title}</h1>
               <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
                 <span>owner <Hex value={w.owner} /></span>
@@ -94,7 +94,7 @@ export default function WatchlistDetailPage() {
                 <div className="flex items-center justify-between"><span className="cmd">alert#{a.alertId}</span><SeverityBadge severity={a.severity} /></div>
                 <p className="text-sm text-muted">{a.summary}</p>
                 {a.recommendedActions.length > 0 && <ul className="list-disc pl-4 text-xs text-muted">{a.recommendedActions.slice(0, 3).map((x, i) => <li key={i}>{x}</li>)}</ul>}
-                <div className="text-xs text-muted">by <Hex value={a.publisher} /> · <StatusChip status={a.status} kind="alert" /></div>
+                <div className="text-xs text-muted">by <Hex value={a.publisher} /> | <StatusChip status={a.status} kind="alert" /></div>
               </div>
             ))}</div>
           )}
@@ -135,7 +135,7 @@ function SnapshotsTab({
             <div className="min-w-0">
               <div className="flex items-center gap-2"><span className="cmd">snap#{s.snapshotId}</span><StatusChip status={s.status} kind="snapshot" /><VerdictBadge verdict={s.verdict} change={s.changeScore} risk={s.riskScore} /></div>
               <p className="mt-1 line-clamp-2 text-sm text-muted">{s.snapshotSummary}</p>
-              <div className="mt-1 text-xs text-muted">submitter <Hex value={s.submitter} /> · <ExtLink href={s.sourceUrl}>{hostOf(s.sourceUrl)}</ExtLink></div>
+              <div className="mt-1 text-xs text-muted">submitter <Hex value={s.submitter} /> | <ExtLink href={s.sourceUrl}>{hostOf(s.sourceUrl)}</ExtLink></div>
             </div>
           </div>
           {s.changeSummary && <p className="mt-2 text-xs text-muted">{s.changeSummary}</p>}

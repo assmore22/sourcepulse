@@ -72,8 +72,8 @@ export function VerdictBadge({ verdict, change, risk }: { verdict?: string; chan
   return (
     <span className={`chip ${cls}`}>
       {verdict || "unassessed"}
-      {typeof change === "number" && change > 0 ? <span className="mono opacity-80">· c{change}</span> : null}
-      {typeof risk === "number" && risk > 0 ? <span className="mono opacity-80">· r{risk}</span> : null}
+      {typeof change === "number" && change > 0 ? <span className="mono opacity-80">| c{change}</span> : null}
+      {typeof risk === "number" && risk > 0 ? <span className="mono opacity-80">| r{risk}</span> : null}
     </span>
   );
 }

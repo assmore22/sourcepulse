@@ -40,7 +40,7 @@ export function CommandLog({ records, height = 460 }: { records: AuditRecord[]; 
           <div key={r.auditId} data-logline className="flex flex-wrap items-baseline gap-x-2 border-b border-line/40 py-1">
             <span className="text-muted">[{String(r.at).padStart(3, "0")}]</span>
             <span className={ACTION_COLOR[r.action] ?? "text-text"}>{r.action}</span>
-            <span className="text-muted">·</span>
+            <span className="text-muted">|</span>
             <span className="text-text/80">{r.statusAfter}</span>
             {r.snapshotId && <span className="text-muted">snap#{r.snapshotId}</span>}
             {r.alertId && <span className="text-warning">alert#{r.alertId}</span>}

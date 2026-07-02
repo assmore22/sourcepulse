@@ -56,7 +56,7 @@ export default function WorkbenchPage() {
           </select>}
         {watch && <StatusChip status={watch.status} kind="watch" />}
         <div className="ml-auto flex items-center gap-2">
-          <span className="cmd text-muted">watches {stats.data?.watchlists ?? 0} · snaps {stats.data?.snapshots ?? 0} · alerts {stats.data?.publishedAlerts ?? 0} · alerting {stats.data?.alertingWatchlists ?? 0}</span>
+          <span className="cmd text-muted">watches {stats.data?.watchlists ?? 0} | snaps {stats.data?.snapshots ?? 0} | alerts {stats.data?.publishedAlerts ?? 0} | alerting {stats.data?.alertingWatchlists ?? 0}</span>
           <button type="button" className="btn btn-ghost btn-xs" onClick={reloadAll}><FontAwesomeIcon icon={faRotateRight} className={`h-3 w-3 ${snaps.loading ? "animate-spin" : ""}`} /></button>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function WorkbenchPage() {
       <div className="grid flex-1 grid-cols-1 gap-px overflow-hidden bg-line lg:grid-cols-[30%_45%_25%]">
         {/* left: command log */}
         <section className="flex flex-col overflow-hidden bg-bg p-3">
-          <div className="mb-2 label flex items-center gap-2"><FontAwesomeIcon icon={faTerminal} className="text-primary" /> command log{watch ? ` · #${watch.watchId}` : ""}</div>
+          <div className="mb-2 label flex items-center gap-2"><FontAwesomeIcon icon={faTerminal} className="text-primary" /> command log{watch ? ` | #${watch.watchId}` : ""}</div>
           {audit.loading && !audit.data ? <TerminalBoot lines={6} /> : <CommandLog records={audit.data ?? []} height={9999} />}
         </section>
 

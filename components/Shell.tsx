@@ -4,10 +4,9 @@ import { type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTriangleExclamation, faCircleDot } from "@fortawesome/free-solid-svg-icons";
+import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import { SourcePulseLogo } from "./SourcePulseLogo";
 import { WalletConnect } from "./WalletConnect";
-import { WALLETCONNECT_PROJECT_ID } from "@/app/providers";
 import { hasContract, CONTRACT } from "@/lib/sourcepulse";
 import { CHAIN_ID } from "@/lib/studionet";
 import { Hex } from "./ui";
@@ -43,7 +42,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-3">
             <div className="hidden items-center gap-2 font-mono text-[11px] text-muted lg:flex">
               <FontAwesomeIcon icon={faCircleDot} className="h-2.5 w-2.5 text-primary animate-ticker" /> studionet:{CHAIN_ID}
-              <span className="text-line">·</span>
+              <span className="text-line">|</span>
               {hasContract() ? <Hex value={CONTRACT} kind="contract" lead={5} tail={4} /> : <span className="text-warning">no contract</span>}
             </div>
             <WalletConnect />
@@ -58,12 +57,6 @@ export function Shell({ children }: { children: ReactNode }) {
       </header>
 
       <main className="w-full flex-1">
-        {!WALLETCONNECT_PROJECT_ID && (
-          <div className="flex items-start gap-2.5 border-b border-line bg-warning/5 px-4 py-2 text-xs text-muted">
-            <FontAwesomeIcon icon={faTriangleExclamation} className="mt-0.5 h-3.5 w-3.5 text-warning" />
-            <span><span className="font-semibold text-text">local dev:</span> no WalletConnect project id - injected wallets (MetaMask) work; WalletConnect QR disabled. Set <span className="mono">NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID</span> to enable.</span>
-          </div>
-        )}
         {children}
       </main>
     </div>

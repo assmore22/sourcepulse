@@ -69,7 +69,7 @@ export default function SubmitSnapshotPage() {
           {selected ? (
             <div className="terminal space-y-2 p-4">
               <div className="flex items-center justify-between"><div className="cmd">{selected.title}</div><StatusChip status={selected.status} kind="watch" /></div>
-              <div className="text-xs text-muted">{selected.sourceType} · alert threshold {selected.alertThreshold}</div>
+              <div className="text-xs text-muted">{selected.sourceType} | alert threshold {selected.alertThreshold}</div>
               <div className="label mt-1">source URLs</div>
               <div className="flex flex-wrap gap-2 text-xs">{selected.sourceUrls.map((u) => <ExtLink key={u} href={u}>{hostOf(u)}</ExtLink>)}</div>
             </div>
